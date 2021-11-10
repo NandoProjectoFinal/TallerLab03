@@ -2,12 +2,15 @@ package TallarLab03;
 
 import java.util.Scanner;
 
+import static TallarLab03.GestordeArchivos.leerArchivo;
+import static TallarLab03.GestordeArchivos.nuevaLinea;
+
 public class MetodosP {
     public Empresa _unnamed_Empresa_;
     public Main _unnamed_Main_;
 
 	public static void iniciador(){
-		selecionOpciones(6);
+		seleccion();
 	}
 
 	public static void menu() {
@@ -41,8 +44,25 @@ public class MetodosP {
 		} while (opcion <= 0 || opcion >= cantOP + 1);
 
 		return opcion;
-
 	}
+		public static void seleccion(){
+			switch (selecionOpciones(6)){
+				case 1: agregarProductos();
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+
+			}
+
+		}
 	public static int validarRangodeNumero(int numero1) {
 		if (numero1 < 0) {
 			System.out.println("No se admiten numeros negativos");
@@ -67,11 +87,27 @@ public class MetodosP {
 
     }
 
-    public void agregarProductos() {
-
+    public static void agregarProductos() {
+		nuevaLinea(".\\Productos",ingresoDatos());
+		System.out.println("La lista queda Asi: ");
+		System.out.println(leerArchivo(".\\Productos"));
     }
 
-    public void quitarProductos() {
+	public static String ingresarRespuesta(){
+		Scanner teclado = new Scanner(System.in);
+		return teclado.nextLine();
+	}
+
+	public static String ingresoDatos() {
+		System.out.println("Que Tipo de producto desea Agregar");
+		String contenido = ingresarRespuesta();
+		System.out.println("Ingrese el codigo del Producto");
+		contenido = contenido + " "+ ingresarRespuesta();
+		return contenido;
+	}
+
+
+	public void quitarProductos() {
         throw new UnsupportedOperationException();
     }
 
