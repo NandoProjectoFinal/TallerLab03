@@ -10,37 +10,47 @@ public class Main {
 	public MetodosP _unnamed_MetodosP_;
 
 	public void iniciador() {
-		throw new UnsupportedOperationException();
+		CrearDirectorio();
 	}
 	public void CrearDirectorio() {
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Ingresa nombre de la nueva carpeta");
-		String ruta = teclado.next();
-		Path directorio = Paths.get(ruta);
-		if (Files.exists(directorio)) {
-			System.out.println("El directorio ya existe");
-		} else {
-			try {
-				Files.createDirectories(directorio);
-				System.out.println("el directorio fue creado exitosamente");
-			} catch (IOException e) {
-				System.out.println("El directorio no pudo ser creado");
-
-			}
-
+		String ruta = ".\\Camiones";
+		Path archivo = Paths.get(ruta);
+		String contenido = "";
+		try {
+			contenido = new String(Files.readAllBytes(archivo));
+		} catch (IOException e) {
+			System.out.println("El archivo no pudo ser leido");
 		}
+		System.out.println(contenido);
 	}
-
-	public static String obtenerRUTA(){
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Ingresa la ruta");
-		return teclado.next();
-	}
-	public static String obtenerTexto(){
+	public String obtenerTexto(){
 		Scanner teclado = new Scanner(System.in);
 		System.out.println("ingresa un texto para almecenar en el archivo");
 		String texto = teclado.next() + teclado.nextLine();
 		return texto;
 
+	}
+	public void nuevaLinea(String ruta, String contenido) {
+		String oldContenido = leerArchivo(ruta);
+		crearArchivo(ruta, oldContenido + "\n" + contenido);
+	}
+	public String leerArchivo(String ruta) {
+		Path archivo = Paths.get(ruta);
+		String contenido = "";
+		try {
+			contenido = new String(Files.readAllBytes(archivo));
+		} catch (IOException e) {
+			System.out.println("El archivo no pudo ser leido");
+		}
+		return contenido;
+	}
+	public void crearArchivo(String ruta, String contenido) {
+		Path archivo = Paths.get(ruta);
+		try {
+			Files.write(archivo, contenido.getBytes());
+			System.out.println("El archivo fue creado exitosamente");
+		} catch (IOException e) {
+			System.out.println("El archivo no pudo ser creado");
+		}
 	}
 }

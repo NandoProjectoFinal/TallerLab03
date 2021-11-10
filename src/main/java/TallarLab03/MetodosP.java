@@ -7,7 +7,7 @@ public class MetodosP {
 	public Main _unnamed_Main_;
 
 	public void agregarProductos() {
-		throw new UnsupportedOperationException();
+
 	}
 
 	public void quitarProductos() {
@@ -15,7 +15,7 @@ public class MetodosP {
 	}
 
 	public void agregarCamion() {
-		throw new UnsupportedOperationException();
+		_unnamed_Main_.nuevaLinea(".\\productos",_unnamed_Main_.obtenerTexto());
 	}
 
 	public void desvincularCamion() {
