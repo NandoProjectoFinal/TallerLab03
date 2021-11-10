@@ -1,13 +1,14 @@
 package TallarLab03;
 
+import java.util.ArrayList;
 import java.util.Vector;
 import TallarLab03.Producto;
 
 public class Flete {
 	private String _codigoID;
-	private producto _descripcion;
+	private Producto _descripcion;
 	public Camion _unnamed_Camion_;
-	public Vector<Producto> _unnamed_Producto_ = new Vector<Producto>();
+	public ArrayList<Producto> _unnamed_Producto_ = new ArrayList<Producto>();
 
 	public String getCodigoID() {
 		return this._codigoID;
@@ -17,11 +18,11 @@ public class Flete {
 		this._codigoID = aCodigoID;
 	}
 
-	public producto getDescripcion() {
+	public Producto getDescripcion() {
 		return this._descripcion;
 	}
 
-	public void setDescripcion(producto aDescripcion) {
+	public void setDescripcion(Producto aDescripcion) {
 		this._descripcion = aDescripcion;
 	}
 }
